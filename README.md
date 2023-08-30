@@ -13,7 +13,7 @@ How about organizing in one place and with a CLI that has only two commands?
 # Installing
 
 ```bash
-git clone https://github.com/marcos-venicius/daily.git ~/.daily && chmod u+x ~/.daily/main.py && ln -ls ~/.daily/main.py /bin/daily
+git clone https://github.com/marcos-venicius/daily.git ~/.daily && chmod u+x ~/.daily/main.py && ln -s ~/.daily/main.py /bin/daily
 ```
 
 # How to use?
