@@ -2,6 +2,7 @@ from os import path
 
 HOME = path.expanduser('~')
 DAILY_FILES_DIRECTORY = f'{HOME}/.daily-files'
+MAX_LINES_OF_SUMMARY_ON_HISTORY = 10
 WEEK_DAYS = {
     '0': 'Monday',
     '1': 'Sunday',

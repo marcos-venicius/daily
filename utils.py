@@ -29,6 +29,23 @@ def create_daily_file_full_path() -> str:
 
     return os.path.join(DAILY_FILES_DIRECTORY, filename)
 
+def extract_day_and_date_from_file_name(path: str) -> (str, str):
+    """
+    Returns:
+        (filename, date) 
+    """
+
+    split = path.split('/')
+    filename = split[len(split) - 1]
+    filename = filename[0:filename.index('.')]
+
+    day, *date = filename.split('-')
+
+    day = day.capitalize()
+    date = '-'.join(date)
+
+    return (day, date)
+
 def open_in_vim_editor(file_path: str) -> None:
     process = Popen(['vim', file_path])
 
