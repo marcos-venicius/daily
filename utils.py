@@ -16,7 +16,7 @@ def get_date_formatted() -> str:
     
     return '-'.join(current_date)
 
-def create_daily_file_full_path(extension='.txt') -> str:
+def create_daily_file_full_path() -> str:
     """
     create daily file name with full path to it
     """
@@ -25,7 +25,7 @@ def create_daily_file_full_path(extension='.txt') -> str:
 
     week_day_as_string = get_week_display_name().lower()
 
-    filename = f'{week_day_as_string}-{current_date}{extension}'
+    filename = f'{week_day_as_string}-{current_date}.txt'
 
     return os.path.join(DAILY_FILES_DIRECTORY, filename)
 
