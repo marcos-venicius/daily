@@ -13,7 +13,7 @@ How about organizing in one place and with a CLI that has only two commands?
 # Installing
 
 ```bash
-git clone https://github.com/marcos-venicius/daily.git ~/.daily && chmod u+x ~/.daily/main.py && ln -s ~/.daily/main.py /bin/daily
+git clone https://github.com/marcos-venicius/daily.git ~/.daily && chmod u+x ~/.daily/main.py && sudo ln -s ~/.daily/main.py /bin/daily && clear && daily --help
 ```
 
 # How to use?
@@ -41,5 +41,5 @@ this command will show your daily history with a short summary presentation
 # Uninstalling
 
 ```bash
-rm -rf ~/.daily && rm -rf /bin/daily
+rm -rf ~/.daily && sudo rm -rf /bin/daily
 ```
