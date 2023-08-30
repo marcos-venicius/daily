@@ -1,5 +1,8 @@
 # Daily
 
+![image](https://github.com/marcos-venicius/daily/assets/94018427/630c6731-d667-47b0-b677-a947892ce254)
+
+
 Every software engineer has a daily first thing in the morning!
 
 How about organizing in one place and with a CLI that has only two commands?
