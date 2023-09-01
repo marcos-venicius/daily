@@ -57,4 +57,5 @@ rm -rf ~/.daily && sudo rm -rf /bin/daily
 - [x] Create daily
 - [x] Open current daily
 - [x] Show daily history
+- [x] Create command to update the CLI
 - [ ] Open daily at specific date
