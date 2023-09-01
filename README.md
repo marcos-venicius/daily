@@ -10,8 +10,9 @@ How about organizing in one place and with a CLI that has only two commands?
 # Table of contents
 
 - [Installing](#installing)
-- [How to use](#how-to-use)
+- [Updating](#updating)
 - [Uninstalling](#uninstalling)
+- [How to use](#how-to-use)
 - [Tools](#tools)
 
 # Installing
@@ -20,6 +21,22 @@ How about organizing in one place and with a CLI that has only two commands?
 
 ```bash
 git clone https://github.com/marcos-venicius/daily.git ~/.daily && chmod u+x ~/.daily/main.py && sudo ln -s ~/.daily/main.py /bin/daily && clear && daily --help
+```
+
+# Updating
+
+this command will update your daily tool
+
+```bash
+daily --update
+```
+
+# Uninstalling
+
+**Will ask for sudo**
+
+```bash
+rm -rf ~/.daily && sudo rm -rf /bin/daily
 ```
 
 # How to use?
@@ -43,14 +60,6 @@ daily --history
 ```
 
 this command will show your daily history with a short summary presentation
-
-# Uninstalling
-
-**Will ask for sudo**
-
-```bash
-rm -rf ~/.daily && sudo rm -rf /bin/daily
-```
 
 # Tools
 
