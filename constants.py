@@ -3,7 +3,6 @@ from os import path
 HOME = path.expanduser('~')
 INSTALL_DIRECTORY = '.daily'
 INSTALL_PATH = path.join(HOME, INSTALL_DIRECTORY)
-OLD_INSTALL_PATH = path.join(HOME, INSTALL_DIRECTORY + '.old')
 DAILY_FILES_DIRECTORY = f'{HOME}/.daily-files'
 MAX_LINES_OF_SUMMARY_ON_HISTORY = 10
 REPOSITORY_LOCATION = 'https://github.com/marcos-venicius/daily.git'
