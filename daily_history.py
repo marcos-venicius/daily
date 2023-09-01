@@ -56,7 +56,7 @@ class DailyHistory:
 
             files_with_metadata.append((file, weekday, date))
 
-        files_with_metadata = sorted(files_with_metadata, key=lambda file: file[2])
+        files_with_metadata = sorted(files_with_metadata, key=lambda file: -int(''.join(file[2].split('-'))))
 
         for file in files_with_metadata:
             data = self.__get_daily_data(file[0])
