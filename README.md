@@ -12,6 +12,7 @@ How about organizing in one place and with a CLI that has only two commands?
 - [Installing](#installing)
 - [How to use](#how-to-use)
 - [Uninstalling](#uninstalling)
+- [Tools](#tools)
 
 # Installing
 
@@ -50,3 +51,10 @@ this command will show your daily history with a short summary presentation
 ```bash
 rm -rf ~/.daily && sudo rm -rf /bin/daily
 ```
+
+# Tools
+
+- [x] Create daily
+- [x] Open current daily
+- [x] Show daily history
+- [ ] Open daily at specific date
