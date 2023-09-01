@@ -16,7 +16,7 @@ How about organizing in one place and with a CLI that has only two commands?
 
 # Installing
 
-**Will ask sudo**
+**Will ask for sudo**
 
 ```bash
 git clone https://github.com/marcos-venicius/daily.git ~/.daily && chmod u+x ~/.daily/main.py && sudo ln -s ~/.daily/main.py /bin/daily && clear && daily --help
@@ -46,7 +46,7 @@ this command will show your daily history with a short summary presentation
 
 # Uninstalling
 
-**Will ask sudo**
+**Will ask for sudo**
 
 ```bash
 rm -rf ~/.daily && sudo rm -rf /bin/daily
