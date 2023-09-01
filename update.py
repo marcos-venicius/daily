@@ -30,7 +30,7 @@ class Update:
         else:
             output = stdout.decode('utf-8')
 
-            if output == 'Already up to date.':
+            if output == 'Already up to date.\n':
                 print('\033[1;37m[*] Daily CLI already up to date\033[0m')
             else:
                 print('\033[1;32m[+] Daily CLI updated successfully\033[0m')
