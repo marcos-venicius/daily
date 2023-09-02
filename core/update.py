@@ -1,7 +1,7 @@
-import os
 from shutil import which
 import subprocess
-from constants import INSTALL_PATH
+
+from core.constants import INSTALL_PATH
 
 class Update:
     def __init__(self):

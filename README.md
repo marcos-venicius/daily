@@ -74,4 +74,5 @@ this command will show your daily history with a short summary presentation
 - [x] Open current daily
 - [x] Show daily history
 - [x] Create command to update the CLI
+- [ ] Today daily on `VIEW MODE`
 - [ ] Open daily at specific date

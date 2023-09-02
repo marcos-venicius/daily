@@ -1,11 +1,8 @@
 import os
-from constants import DAILY_FILES_DIRECTORY, MAX_LINES_OF_SUMMARY_ON_HISTORY
-from utils import extract_day_and_date_from_file_name, get_date_formatted
+from core.constants import DAILY_FILES_DIRECTORY, MAX_LINES_OF_SUMMARY_ON_HISTORY
+from core.utils import extract_day_and_date_from_file_name, get_date_formatted
 
 class DailyHistory:
-    def __init__(self) -> None:
-        pass
-
     def __mount_path_until_file(self, filename) -> str:
         return os.path.join(DAILY_FILES_DIRECTORY, filename)
 

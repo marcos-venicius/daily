@@ -1,6 +1,6 @@
 import os
-from constants import DAILY_FILES_DIRECTORY
-from utils import create_daily_file_full_path, get_week_display_name, get_date_formatted
+from core.constants import DAILY_FILES_DIRECTORY
+from core.utils import create_daily_file_full_path, get_week_display_name, get_date_formatted
 
 
 def create_daily_files_folder_if_not_exists() -> None:

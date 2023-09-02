@@ -1,7 +1,8 @@
 import os
 from datetime import date
-from constants import WEEK_DAYS, DAILY_FILES_DIRECTORY
 from subprocess import Popen
+
+from core.constants import WEEK_DAYS, DAILY_FILES_DIRECTORY
 
 
 def get_week_display_name() -> str:
