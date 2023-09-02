@@ -43,6 +43,9 @@ class DailyHistory:
         lines = [line for line in lines if len(line.strip()) != 0]
 
         return '\n'.join(lines)
+    
+    def __sort_daily(self, date: str) -> int:
+        return int(''.join(date.split('-')[::-1]))
 
     def display_history(self):
         files = self.__get_daily_file_paths()
@@ -56,7 +59,7 @@ class DailyHistory:
 
             files_with_metadata.append((file, weekday, date))
 
-        files_with_metadata = sorted(files_with_metadata, key=lambda file: -int(''.join(file[2].split('-'))))
+        files_with_metadata = sorted(files_with_metadata, key=lambda file: self.__sort_daily(file[2]))
 
         for file in files_with_metadata:
             data = self.__get_daily_data(file[0])
