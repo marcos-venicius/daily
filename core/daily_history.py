@@ -2,6 +2,7 @@ import os
 from core.constants import DAILY_FILES_DIRECTORY, MAX_LINES_OF_SUMMARY_ON_HISTORY
 from core.utils import extract_day_and_date_from_file_name, get_date_formatted
 
+
 class DailyHistory:
     def __mount_path_until_file(self, filename) -> str:
         return os.path.join(DAILY_FILES_DIRECTORY, filename)
@@ -40,7 +41,7 @@ class DailyHistory:
         lines = [line for line in lines if len(line.strip()) != 0]
 
         return '\n'.join(lines)
-    
+
     def __sort_daily(self, date: str) -> int:
         return int(''.join(date.split('-')[::-1]))
 
@@ -56,7 +57,9 @@ class DailyHistory:
 
             files_with_metadata.append((file, weekday, date))
 
-        files_with_metadata = sorted(files_with_metadata, key=lambda file: self.__sort_daily(file[2]))
+        files_with_metadata = sorted(
+            files_with_metadata, key=lambda file: self.__sort_daily(file[2])
+        )
 
         for file in files_with_metadata:
             data = self.__get_daily_data(file[0])

@@ -3,6 +3,7 @@ import subprocess
 
 from core.constants import INSTALL_PATH
 
+
 class Update:
     def __init__(self):
         pass

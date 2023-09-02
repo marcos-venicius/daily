@@ -1,5 +1,6 @@
 import argparse
 
+
 class ArgumentsConfigure:
     def __init__(self, execute_when_empty, description: str):
         self.parser = argparse.ArgumentParser(description=description)

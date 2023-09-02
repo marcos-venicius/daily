@@ -6,8 +6,9 @@ from core.utils import create_daily_file_full_path, get_week_display_name, get_d
 def create_daily_files_folder_if_not_exists() -> None:
     if os.path.isdir(DAILY_FILES_DIRECTORY):
         return
-    
+
     os.mkdir(DAILY_FILES_DIRECTORY)
+
 
 def create_or_open_daily_file() -> str:
     """

@@ -10,12 +10,14 @@ def get_week_display_name() -> str:
 
     return WEEK_DAYS[str(week_day_number)]
 
+
 def get_date_formatted() -> str:
     current_date = date.today()
     current_date = str(current_date).split('-')
     current_date = current_date[::-1]
-    
+
     return '-'.join(current_date)
+
 
 def create_daily_file_full_path() -> str:
     """
@@ -29,6 +31,7 @@ def create_daily_file_full_path() -> str:
     filename = f'{week_day_as_string}-{current_date}.txt'
 
     return os.path.join(DAILY_FILES_DIRECTORY, filename)
+
 
 def extract_day_and_date_from_file_name(path: str) -> (str, str):
     """
@@ -46,6 +49,7 @@ def extract_day_and_date_from_file_name(path: str) -> (str, str):
     date = '-'.join(date)
 
     return (day, date)
+
 
 def open_in_vim_editor(file_path: str) -> None:
     process = Popen(['vim', file_path])
