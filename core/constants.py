@@ -4,7 +4,7 @@ HOME = path.expanduser('~')
 INSTALL_DIRECTORY = '.daily'
 INSTALL_PATH = path.join(HOME, INSTALL_DIRECTORY)
 DAILY_FILES_DIRECTORY = f'{HOME}/.daily-files'
-MAX_LINES_OF_SUMMARY_ON_HISTORY = 10
+MAX_LINES_OF_SUMMARY_ON_HISTORY = 5
 REPOSITORY_LOCATION = 'https://github.com/marcos-venicius/daily.git'
 WEEK_DAYS = {
     '0': 'Monday',

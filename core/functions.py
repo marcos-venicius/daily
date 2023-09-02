@@ -1,5 +1,6 @@
 import os
 from core.constants import DAILY_FILES_DIRECTORY
+from core.tokens import Tokens
 from core.utils import create_daily_file_full_path, get_week_display_name, get_date_formatted
 
 
@@ -25,10 +26,10 @@ def create_or_open_daily_file() -> str:
         with open(full_path, 'w') as file:
             file.write(header)
             file.write('\n\n')
-            file.write('In the morning:\n\n')
-            file.write('In the afternoon:\n\n')
-            file.write('Summary:\n\n')
-            file.write('Notes:\n\n')
+            file.write(f'{Tokens.IN_THE_MORNING}\n\n')
+            file.write(f'{Tokens.IN_THE_AFTERNOON}\n\n')
+            file.write(f'{Tokens.SUMMARY}\n\n')
+            file.write(f'{Tokens.NOTES}\n\n')
             file.close()
 
     return full_path

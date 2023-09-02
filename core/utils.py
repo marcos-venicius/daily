@@ -3,6 +3,7 @@ from datetime import date
 from subprocess import Popen
 
 from core.constants import WEEK_DAYS, DAILY_FILES_DIRECTORY
+from core.tokens import Tokens
 
 
 def get_week_display_name() -> str:

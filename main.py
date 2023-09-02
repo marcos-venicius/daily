@@ -13,22 +13,22 @@ def create_or_open_daily_file_handler():
     open_in_vim_editor(daily_file_full_path)
 
 
-def daily_history_handler():
-    daily_history = DailyHistory()
-
-    daily_history.display_history()
-
-
 def main():
     updater = Updater()
+    daily_history = DailyHistory()
 
     create_daily_files_folder_if_not_exists()
 
     argument_configure = ArgumentsConfigure(
-        create_or_open_daily_file_handler, 'Daily CLI')
+        create_or_open_daily_file_handler, 'Daily CLI'
+    )
 
     argument_configure.add_argument(
-        'history', 'show daily history', daily_history_handler)
+        'history', 'show daily history', daily_history.display_history
+    )
+    argument_configure.add_argument(
+        'today', 'today daily in VIEW MODE', daily_history.display_today
+    )
     argument_configure.add_argument('update', 'update the CLI', updater.run)
 
     argument_configure.parse()

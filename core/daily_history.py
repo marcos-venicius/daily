@@ -1,9 +1,14 @@
 import os
 from core.constants import DAILY_FILES_DIRECTORY, MAX_LINES_OF_SUMMARY_ON_HISTORY
-from core.utils import extract_day_and_date_from_file_name, get_date_formatted
+from core.utils import extract_day_and_date_from_file_name, get_date_formatted, create_daily_file_full_path
+from core.daily_reader import DailyReader
+from core.tokens import Tokens
 
 
 class DailyHistory:
+    def __init__(self):
+        self.daily_reader = DailyReader()
+
     def __mount_path_until_file(self, filename) -> str:
         return os.path.join(DAILY_FILES_DIRECTORY, filename)
 
@@ -18,32 +23,31 @@ class DailyHistory:
 
         return paths
 
-    def __get_daily_data(self, path: str) -> str:
-        lines: list[str] = []
-
-        with open(path, 'r') as file:
-            getting_lines = False
-            lines_count = MAX_LINES_OF_SUMMARY_ON_HISTORY
-
-            for line in file:
-                if line.startswith('Summary:'):
-                    getting_lines = True
-                    continue
-                elif line.startswith('Notes:') or lines_count <= 0:
-                    file.close()
-                    break
-
-                if getting_lines:
-                    lines_count -= 1
-                    line = f'\t {line.strip()}'
-                    lines.append(line)
-
-        lines = [line for line in lines if len(line.strip()) != 0]
-
-        return '\n'.join(lines)
-
     def __sort_daily(self, date: str) -> int:
         return int(''.join(date.split('-')[::-1]))
+
+    def display_today(self):
+        today_daily_path = create_daily_file_full_path()
+
+        self.daily_reader.update_path(today_daily_path)
+
+        if not os.path.isfile(today_daily_path):
+            print("\033[1;33m[!]\033[0m You haven't created your daily yet")
+            return exit(-1)
+
+        weekday, date = extract_day_and_date_from_file_name(today_daily_path)
+        summary = self.daily_reader.read_between_tokens(
+            starts_at=Tokens.SUMMARY,
+            ends_at=Tokens.NOTES,
+            number_of_lines=-1,
+            strip=True
+        )
+
+        print()
+        print(f'\033[1;36mToday\033[0m\t\t \033[1;34m{weekday}, {date}\033[0m')
+        print()
+        print(f'\033[2;37m{summary}\033[0m')
+        print()
 
     def display_history(self):
         files = self.__get_daily_file_paths()
@@ -62,14 +66,23 @@ class DailyHistory:
         )
 
         for file in files_with_metadata:
-            data = self.__get_daily_data(file[0])
+            self.daily_reader.update_path(file[0])
+            data = self.daily_reader.read_between_tokens(
+                starts_at=Tokens.SUMMARY,
+                ends_at=Tokens.NOTES,
+                number_of_lines=MAX_LINES_OF_SUMMARY_ON_HISTORY,
+                strip=True
+            )
             weekday, date = file[1], file[2]
 
-            header = f'{weekday}, {date} \033[1;33m[first {MAX_LINES_OF_SUMMARY_ON_HISTORY} summary lines]\n\033[0m'
+            header = f'{date}, {weekday}\t \033[1;34m[first {MAX_LINES_OF_SUMMARY_ON_HISTORY} summary lines]\n\033[0m'
 
             if today == date:
                 header = f"\033[1;36mToday\033[0m - {header}"
 
             print(header)
-            print('\033[2;37m', data, '\033[0m')
+            if len(data) == 0:
+                print('\033[1;33m(Without summary)\033[0m')
+            else:
+                print(f'\033[2;37m{data}\033[0m')
             print()
