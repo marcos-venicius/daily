@@ -4,7 +4,7 @@ import subprocess
 from core.constants import INSTALL_PATH
 
 
-class Update:
+class Updater:
     def __init__(self):
         pass
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from core.update import Update
+from core.updater import Updater
 from core.daily_history import DailyHistory
 from core.utils import open_in_vim_editor
 from core.functions import create_daily_files_folder_if_not_exists, create_or_open_daily_file
@@ -20,7 +20,7 @@ def daily_history_handler():
 
 
 def main():
-    updater = Update()
+    updater = Updater()
 
     create_daily_files_folder_if_not_exists()
 
