@@ -19,6 +19,13 @@ How about organizing in one place and with a CLI that has only two commands?
 
 **Will ask for sudo**
 
+Tools that you will need
+
+- Git
+- Python
+
+**This installation should work on many Unix systems, but i just tested on ubuntu**
+
 ```bash
 git clone https://github.com/marcos-venicius/daily.git ~/.daily && chmod u+x ~/.daily/main.py && sudo ln -s ~/.daily/main.py /bin/daily && clear && daily --help
 ```
