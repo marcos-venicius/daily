@@ -39,8 +39,7 @@ class DailyHistory:
         summary = self.daily_reader.read_between_tokens(
             starts_at=Tokens.SUMMARY,
             ends_at=Tokens.NOTES,
-            number_of_lines=-1,
-            strip=True
+            number_of_lines=-1
         )
 
         print()
